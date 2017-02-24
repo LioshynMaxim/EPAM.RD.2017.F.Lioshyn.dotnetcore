@@ -341,8 +341,11 @@ namespace UnitTestProject1
             var actualData = -1;
 
             //ToDo Add code for second list
-
-            
+            actualData = (from user in _userListSecond
+                        join info in NameInfo
+                        on user.Name
+                        equals info.name
+                        select new User()).Count();
 
             Assert.IsTrue(expectedData == actualData);
         }
